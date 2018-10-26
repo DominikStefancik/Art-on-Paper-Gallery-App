@@ -15,6 +15,15 @@ export class PaperArtPieceService {
     return this.cache;
   }
 
+  public getArtPiecePicture(pictureName: string): Buffer {
+    const picturePath = path.join(
+      __dirname,
+      `../../../resources/paper_art_items-pictures/${pictureName}`
+    );
+
+    return fs.readFileSync(picturePath);
+  }
+
   private getArtPiecesFromFile(): void  {
     const filePath = path.join(__dirname, "../../../resources/paper_art_items.json");
     this.cache = JSON.parse(fs.readFileSync(filePath, "utf-8"));
