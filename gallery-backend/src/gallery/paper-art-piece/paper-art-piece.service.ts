@@ -12,7 +12,7 @@ export class PaperArtPieceService {
   constructor(private paperArtItemMapper: PaperArtItemMapper) {}
 
   public getArtPiecesMetadata(): PaperArtPiece[] {
-    if (this.cache === null) {
+    if (this.cache == null) {
       this.cache = this.getArtPiecesFromFile();
     }
 

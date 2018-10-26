@@ -53,6 +53,7 @@ const GETTY_AAT = {
 };
 
 const PROPERTY_KUENSTLER = "Kuenstler";
+const PROPERTY_KUENSTLER_KURZ = "Kuenstler_kurz";
 const PROPERTY_TITEL = "Titel";
 const PROPERTY_ZUSATZ = "Zusatz";
 const PROPERTY_DATIERUNG = "Datierung";
@@ -69,7 +70,8 @@ export class PaperArtItemMapper {
     return {
       id: uuid(),
       name: paperArtItem[PROPERTY_TITEL],
-      author: paperArtItem[PROPERTY_KUENSTLER],
+      author: PaperArtItemMapper.prototype.getAuthorList(paperArtItem[PROPERTY_KUENSTLER_KURZ]),
+      authorFullString: paperArtItem[PROPERTY_KUENSTLER],
       description: paperArtItem[PROPERTY_ZUSATZ],
       creationDate: paperArtItem[PROPERTY_DATIERUNG],
       materialTechnique: paperArtItem[PROPERTY_MATERIAL_TECHNIK],
@@ -88,5 +90,14 @@ export class PaperArtItemMapper {
     return propertyString.split(",")
       .map((item: string) => item.trim())
       .map((item: string) => GETTY_AAT[item]);
+  }
+
+  private getAuthorList(authorString: string): string[] {
+    if (!authorString) {
+      return null;
+    }
+
+    return authorString.split(",")
+      .map((item: string) => item.trim());
   }
 }
