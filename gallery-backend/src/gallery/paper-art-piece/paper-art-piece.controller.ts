@@ -1,5 +1,7 @@
 import { Controller, Get, Response, Param } from "@nestjs/common";
+
 import { PaperArtPieceService } from "./paper-art-piece.service";
+import { PaperArtPiece } from "domain/paper-art-piece";
 
 @Controller("paper-art-piece")
 export class PaperArtPieceController {
@@ -7,7 +9,7 @@ export class PaperArtPieceController {
   constructor(private readonly paperArtPiecesService: PaperArtPieceService) {}
 
   @Get()
-  public getArtPiecesMetadata(): JSON {
+  public getArtPiecesMetadata(): PaperArtPiece[] {
     return this.paperArtPiecesService.getArtPiecesMetadata();
   }
 
