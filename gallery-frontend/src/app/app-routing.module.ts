@@ -1,10 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-const routes: Routes = [];
+import { GalleryComponent } from "./gallery/gallery.component";
+
+const appRoutes: Routes = [
+  { path: "", redirectTo: "/gallery", pathMatch: "full" },
+  { path: "gallery", component: GalleryComponent },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
