@@ -62,6 +62,10 @@ const PROPERTY_MASSANGABEN = "Massangaben";
 const PROPERTY_BILDCODE = "Bildcode";
 const PROPERTY_GATTUNG = "Gattung";
 const PROPERTY_GETTY_AAT = "Getty_AAT";
+const PROPERTY_BILDNACHWEIS = "Bildnachweis";
+
+const ARTISTS_SEPARATOR = ";";
+const GETTY_AAT_SEPARATOR = ",";
 
 @Injectable()
 export class PaperArtItemMapper {
@@ -79,6 +83,7 @@ export class PaperArtItemMapper {
       measurements: paperArtItem[PROPERTY_MASSANGABEN],
       pictureFile: paperArtItem[PROPERTY_BILDCODE],
       category: CATEGORY[paperArtItem[PROPERTY_GATTUNG]],
+      artPieceOwner: paperArtItem[PROPERTY_BILDNACHWEIS],
     };
   }
 
@@ -87,7 +92,7 @@ export class PaperArtItemMapper {
       return null;
     }
 
-    return propertyString.split(",")
+    return propertyString.split(GETTY_AAT_SEPARATOR)
       .map((item: string) => item.trim())
       .map((item: string) => GETTY_AAT[item]);
   }
@@ -97,7 +102,7 @@ export class PaperArtItemMapper {
       return null;
     }
 
-    return authorString.split(",")
+    return authorString.split(ARTISTS_SEPARATOR)
       .map((item: string) => item.trim());
   }
 }

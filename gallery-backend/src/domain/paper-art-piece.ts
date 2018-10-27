@@ -13,4 +13,5 @@ export interface PaperArtPiece {
   measurements: string;
   pictureFile: string;
   category: PaperArtCategory;
+  artPieceOwner: string;
 }
