@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { PaperArtPiece } from "src/app/domain/paper-art-piece";
+import { ActivatedRoute } from "@angular/router";
 
+import { PaperArtPiece } from "src/app/domain/paper-art-piece";
 @Component({
   selector: "app-paper-art-piece-list",
   templateUrl: "./paper-art-piece-list.component.html",
@@ -9,12 +10,13 @@ import { PaperArtPiece } from "src/app/domain/paper-art-piece";
 export class PaperArtPieceListComponent implements OnInit {
   paperArtPieces: PaperArtPiece[];
 
-  constructor() {
-
-  }
+  constructor(private readonly activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-
+    this.activatedRoute.data
+      .subscribe((data: { paperArtPieceList: PaperArtPiece[]}) => {
+        this.paperArtPieces = data.paperArtPieceList;
+      });
   }
 
 }
