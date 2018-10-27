@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 import { PaperArtPiece } from "src/app/domain/paper-art-piece";
+import { PaperArtPiecesService } from "../paper-art-pieces.service";
 @Component({
   selector: "app-paper-art-piece-list",
   templateUrl: "./paper-art-piece-list.component.html",
@@ -10,7 +11,8 @@ import { PaperArtPiece } from "src/app/domain/paper-art-piece";
 export class PaperArtPieceListComponent implements OnInit {
   paperArtPieces: PaperArtPiece[];
 
-  constructor(private readonly activatedRoute: ActivatedRoute) {}
+  constructor(private readonly activatedRoute: ActivatedRoute,
+              private readonly paperArtPiecesService: PaperArtPiecesService) {}
 
   ngOnInit() {
     this.activatedRoute.data
@@ -19,4 +21,7 @@ export class PaperArtPieceListComponent implements OnInit {
       });
   }
 
+  public getPicture(pictureId) {
+    return this.paperArtPiecesService.getPaperArtPictureUrl(pictureId);
+  }
 }

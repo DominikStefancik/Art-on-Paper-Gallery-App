@@ -1,2 +1,30 @@
+<p-dataView 
+    [value]="paperArtPieces"
+    [paginator]="true" 
+    [rows]="12"
+    layout="grid">
+    <p-header>List of art pieces</p-header>
+    <ng-template let-paperArtPiece pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-3">
+            <p-panel [style]="{'text-align':'center'}">
+                <img [src]="getPicture(paperArtPiece.id)" width="150"/>
+                <p-footer>
+                    <div class="artPieceAuthor">
+                        {{ paperArtPiece.author[0] }}
+                    </div>
+                    <div class="artPieceName">
+                        {{ paperArtPiece.name }}
+                    </div>
+                </p-footer>
+            </p-panel>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft" let-state>
+        {{state.first}}
+        <button type="button" pButton icon="fa-refresh"></button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <button type="button" pButton icon="fa-cloud-upload"></button>
+    </ng-template>
+</p-dataView>
 
-<div *ngFor="let artPiece of paperArtPieces">{{artPiece.name}}: {{artPiece.author}}: {{artPiece.authorFullString}}</div>

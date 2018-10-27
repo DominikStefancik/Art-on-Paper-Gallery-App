@@ -16,4 +16,8 @@ export class PaperArtPiecesService {
   public getAllPaperArtPieces(): Observable<PaperArtPiece> {
     return this.httpClient.get<PaperArtPiece>(PAPER_ART_PIECE_ENDPOINT);
   }
+
+  public getPaperArtPictureUrl(paperArtPieceId: string): string {
+    return `${PAPER_ART_PIECE_ENDPOINT}/${paperArtPieceId}/picture`;
+  }
 }

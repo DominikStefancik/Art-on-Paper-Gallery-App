@@ -19,10 +19,14 @@ export class PaperArtPieceService {
     return this.cache;
   }
 
-  public getArtPiecePicture(pictureName: string): Buffer {
+  public getArtPiecePicture(pictureId: string): Buffer {
+    const pictureFileName: string = this.cache.find((paperArtPiece: PaperArtPiece) => {
+      return paperArtPiece.id === pictureId;
+    }).pictureFile;
+
     const picturePath = path.join(
       __dirname,
-      `../../../resources/paper_art_items-pictures/${pictureName}`
+      `../../../resources/paper_art_items-pictures/${pictureFileName}`,
     );
 
     return fs.readFileSync(picturePath);
