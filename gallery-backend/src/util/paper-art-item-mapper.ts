@@ -57,6 +57,7 @@ const PROPERTY_KUENSTLER_KURZ = "Kuenstler_kurz";
 const PROPERTY_TITEL = "Titel";
 const PROPERTY_ZUSATZ = "Zusatz";
 const PROPERTY_DATIERUNG = "Datierung";
+const PROPERTY_MATERIAL_JAHRHUNDERT = "Jahrhundert";
 const PROPERTY_MATERIAL_TECHNIK = "Material_Technik";
 const PROPERTY_MASSANGABEN = "Massangaben";
 const PROPERTY_BILDCODE = "Bildcode";
@@ -78,6 +79,7 @@ export class PaperArtItemMapper {
       authorFullString: paperArtItem[PROPERTY_KUENSTLER],
       description: paperArtItem[PROPERTY_ZUSATZ],
       creationDate: paperArtItem[PROPERTY_DATIERUNG],
+      century: paperArtItem[PROPERTY_MATERIAL_JAHRHUNDERT],
       materialTechnique: paperArtItem[PROPERTY_MATERIAL_TECHNIK],
       gettyAAT: PaperArtItemMapper.prototype.getGettyAATList(paperArtItem[PROPERTY_GETTY_AAT]),
       measurements: paperArtItem[PROPERTY_MASSANGABEN],

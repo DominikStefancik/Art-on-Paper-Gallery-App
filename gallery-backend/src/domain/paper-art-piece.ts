@@ -8,6 +8,7 @@ export interface PaperArtPiece {
   authorFullString: string;
   description: string;
   creationDate: string;
+  century: number;
   materialTechnique: string;
   gettyAAT: PaperArtTechnique[];
   measurements: string;
