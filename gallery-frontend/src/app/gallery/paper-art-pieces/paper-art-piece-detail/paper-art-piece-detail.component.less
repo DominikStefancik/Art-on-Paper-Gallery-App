@@ -1,0 +1,33 @@
+#detail {
+  display: grid;
+  grid-template-columns: auto 600px;
+  grid-template-areas: 'header header ' ' content rsidebar';
+  background-color: #74B0A1;
+  font-family: "Myriad Pro";
+  font-size: 20px;
+  padding: 50px;
+}
+
+#right-sidebar {
+  grid-area: rsidebar;
+  padding-top: 100px;
+}
+
+#content {
+  grid-area: content;
+  position: relative;
+}
+
+.paperArtPieceName {
+  font-size: 33px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.info-top {
+  padding-bottom: 35px;
+}
+
+img, .year, .materialTechnique {
+  padding-bottom: 20px;
+}

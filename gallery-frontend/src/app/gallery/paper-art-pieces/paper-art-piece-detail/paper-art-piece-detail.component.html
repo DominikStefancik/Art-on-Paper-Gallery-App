@@ -1,0 +1,26 @@
+<div id="detail">
+  <div id="content">
+    <div id="inner-content">
+      <img [src]="getPicture(paperArtPiece.id)" width="700">
+      <div>{{ paperArtPiece.artPieceOwner }}</div>
+    </div>
+  </div>
+  <div id="right-sidebar">
+      <div class="info-top">
+        <div class="paperArtPieceAuthor">{{ paperArtPiece.authorFullString }}</div>
+        <div class="paperArtPieceName">{{ paperArtPiece.name }}</div>
+      </div>
+
+      <div class="year">
+        <div>{{ paperArtPiece.creationDate }}</div>
+      </div>
+
+      <div class="materialTechnique">
+        {{ paperArtPiece.materialTechnique }}
+      </div>
+
+      <div class="info-bottom">
+        <div>{{ paperArtPiece.measurements }}</div>
+      </div>
+  </div>
+</div>

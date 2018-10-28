@@ -8,6 +8,7 @@ import { GalleryComponent } from "./gallery.component";
 import { GalleryRoutingModule } from "./gallery-routing.module";
 import { PaperArtPieceListComponent } from "./paper-art-pieces/paper-art-piece-list/paper-art-piece-list.component";
 import { PaperArtPiecesService } from "./paper-art-pieces/paper-art-pieces.service";
+import { PaperArtPieceDetailComponent } from "./paper-art-pieces/paper-art-piece-detail/paper-art-piece-detail.component";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PaperArtPiecesService } from "./paper-art-pieces/paper-art-pieces.servi
   ],
   declarations: [
     GalleryComponent,
-    PaperArtPieceListComponent
+    PaperArtPieceListComponent,
+    PaperArtPieceDetailComponent
   ],
   providers: [
     PaperArtPiecesService
