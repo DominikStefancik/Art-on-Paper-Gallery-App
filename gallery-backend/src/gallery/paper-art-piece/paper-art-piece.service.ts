@@ -11,7 +11,7 @@ export class PaperArtPieceService {
 
   constructor(private paperArtItemMapper: PaperArtItemMapper) {}
 
-  public getArtPiecesMetadata(): PaperArtPiece[] {
+  public getAllPaperArtPieces(): PaperArtPiece[] {
     if (this.cache == null) {
       this.cache = this.getArtPiecesFromFile();
     }
@@ -19,7 +19,17 @@ export class PaperArtPieceService {
     return this.cache;
   }
 
-  public getArtPiecePicture(pictureId: string): Buffer {
+  public getPaperArtPiece(paperArtPieceId: string): PaperArtPiece {
+    if (this.cache == null) {
+      this.cache = this.getArtPiecesFromFile();
+    }
+
+    return this.cache.find((paperArtPiece: PaperArtPiece) => {
+      return paperArtPiece.id === paperArtPieceId;
+    });
+  }
+
+  public getPaperArtPiecePicture(pictureId: string): Buffer {
     const pictureFileName: string = this.cache.find((paperArtPiece: PaperArtPiece) => {
       return paperArtPiece.id === pictureId;
     }).pictureFile;

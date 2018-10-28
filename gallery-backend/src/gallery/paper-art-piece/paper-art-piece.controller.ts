@@ -9,12 +9,17 @@ export class PaperArtPieceController {
   constructor(private readonly paperArtPiecesService: PaperArtPieceService) {}
 
   @Get()
-  public getArtPiecesMetadata(): PaperArtPiece[] {
-    return this.paperArtPiecesService.getArtPiecesMetadata();
+  public getAllPaperArtPieces(): PaperArtPiece[] {
+    return this.paperArtPiecesService.getAllPaperArtPieces();
   }
 
-  @Get(":artPieceId/picture")
-  public getArtPiecePicture(@Param("artPieceId") artPieceId, @Response() response): any {
-    response.send(this.paperArtPiecesService.getArtPiecePicture(artPieceId));
+  @Get(":paperArtPieceId")
+  public getPaperArtPiece(@Param("paperArtPieceId") paperArtPieceId): PaperArtPiece {
+    return this.paperArtPiecesService.getPaperArtPiece(paperArtPieceId);
+  }
+
+  @Get(":paperArtPieceId/picture")
+  public getPaperArtPiecePicture(@Param("paperArtPieceId") paperArtPieceId, @Response() response): any {
+    response.send(this.paperArtPiecesService.getPaperArtPiecePicture(paperArtPieceId));
   }
 }
