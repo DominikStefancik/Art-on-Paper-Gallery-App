@@ -7,7 +7,6 @@ import { PaperArtPieceDetailResolver } from "./paper-art-pieces/paper-art-piece-
 
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/paper-art-pieces", pathMatch: "full" },
   { path: "paper-art-pieces",
     component: PaperArtPieceListComponent,
     resolve: {
