@@ -8,7 +8,10 @@
     <ng-template let-paperArtPiece pTemplate="gridItem">
         <div class="ui-g-12 ui-md-3">
             <p-panel [style]="{'text-align':'center'}">
-                <img [src]="getPicture(paperArtPiece.id)" width="150"/>
+                <img [src]="getPicture(paperArtPiece.id)" 
+                     (click)="showDetailPage(paperArtPiece.id)"
+                     class="clickable"
+                     width="150">
                 <p-footer>
                     <div>
                         <div class="artPieceAuthor">
@@ -18,7 +21,7 @@
                             {{ paperArtPiece.name }}
                         </div>
                     </div>
-                    <div class="ui-g-12 ui-md-1 search-icon" style="float: right">
+                    <div class="ui-g-12 ui-md-1 search-icon clickable" style="float: right">
                         <button pButton type="button" icon="pi pi-search" (click)="onDialogShow(paperArtPiece)"></button>
                     </div>
                 </p-footer>

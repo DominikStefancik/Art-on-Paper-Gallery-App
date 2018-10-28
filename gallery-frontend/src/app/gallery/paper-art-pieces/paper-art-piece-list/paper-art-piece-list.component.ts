@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { PaperArtPiece } from "src/app/domain/paper-art-piece";
 import { PaperArtPiecesService } from "../paper-art-pieces.service";
@@ -14,6 +14,7 @@ export class PaperArtPieceListComponent implements OnInit {
   selectedPaperArtPiece: PaperArtPiece;
 
   constructor(private readonly activatedRoute: ActivatedRoute,
+              private readonly router: Router,
               private readonly paperArtPiecesService: PaperArtPiecesService) {}
 
   ngOnInit() {
@@ -38,5 +39,9 @@ export class PaperArtPieceListComponent implements OnInit {
 
   getSelectedPaperArtPieceName(): string {
     return this.selectedPaperArtPiece ? this.selectedPaperArtPiece.name : null;
+  }
+
+  showDetailPage(paperArtPieceId: string) {
+    this.router.navigate(["/paper-art-pieces", paperArtPieceId]);
   }
 }
