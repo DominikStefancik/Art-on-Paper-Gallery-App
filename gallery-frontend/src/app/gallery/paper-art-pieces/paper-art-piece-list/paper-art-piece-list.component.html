@@ -2,18 +2,24 @@
     [value]="paperArtPieces"
     [paginator]="true" 
     [rows]="12"
-    layout="grid">
+    layout="grid"
+    [style]="{'color': '#74B0A1'}">
     <p-header>List of art pieces</p-header>
     <ng-template let-paperArtPiece pTemplate="gridItem">
         <div class="ui-g-12 ui-md-3">
             <p-panel [style]="{'text-align':'center'}">
                 <img [src]="getPicture(paperArtPiece.id)" width="150"/>
                 <p-footer>
-                    <div class="artPieceAuthor">
-                        {{ paperArtPiece.author[0] }}
+                    <div>
+                        <div class="artPieceAuthor">
+                            {{ paperArtPiece.author[0] }}
+                        </div>
+                        <div class="artPieceName">
+                            {{ paperArtPiece.name }}
+                        </div>
                     </div>
-                    <div class="artPieceName">
-                        {{ paperArtPiece.name }}
+                    <div class="ui-g-12 ui-md-1 search-icon" style="float: right">
+                        <button pButton type="button" icon="pi pi-search" (click)="onDialogShow(paperArtPiece)"></button>
                     </div>
                 </p-footer>
             </p-panel>
@@ -27,4 +33,18 @@
         <button type="button" pButton icon="fa-cloud-upload"></button>
     </ng-template>
 </p-dataView>
+
+<p-dialog 
+    [(visible)]="showBiggerPicture" 
+    [responsive]="true" 
+    showEffect="fade" 
+    [modal]="true"
+    [header]="getSelectedPaperArtPieceName()"
+    (onAfterHide)="onDialogHide()">
+    <div class="ui-g" *ngIf="selectedPaperArtPiece">
+        <div class="ui-g-12" style="text-align:center">
+            <img [src]="getPicture(selectedPaperArtPiece.id)" width="550">
+        </div>
+    </div>
+</p-dialog>
 

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { DataViewModule } from "primeng/dataview";
 import { PanelModule } from "primeng/panel";
+import { DialogModule } from "primeng/dialog";
 
 import { GalleryComponent } from "./gallery.component";
 import { GalleryRoutingModule } from "./gallery-routing.module";
@@ -14,7 +15,8 @@ import { PaperArtPiecesService } from "./paper-art-pieces/paper-art-pieces.servi
     CommonModule,
     GalleryRoutingModule,
     DataViewModule,
-    PanelModule
+    PanelModule,
+    DialogModule
   ],
   declarations: [
     GalleryComponent,

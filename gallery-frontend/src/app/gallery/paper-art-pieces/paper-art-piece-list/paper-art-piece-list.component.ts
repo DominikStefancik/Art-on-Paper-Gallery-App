@@ -10,6 +10,8 @@ import { PaperArtPiecesService } from "../paper-art-pieces.service";
 })
 export class PaperArtPieceListComponent implements OnInit {
   paperArtPieces: PaperArtPiece[];
+  showBiggerPicture: boolean;
+  selectedPaperArtPiece: PaperArtPiece;
 
   constructor(private readonly activatedRoute: ActivatedRoute,
               private readonly paperArtPiecesService: PaperArtPiecesService) {}
@@ -23,5 +25,18 @@ export class PaperArtPieceListComponent implements OnInit {
 
   public getPicture(pictureId) {
     return this.paperArtPiecesService.getPaperArtPictureUrl(pictureId);
+  }
+
+  onDialogShow(paperArtPiece: PaperArtPiece) {
+    this.selectedPaperArtPiece = paperArtPiece;
+    this.showBiggerPicture = true;
+  }
+
+  onDialogHide() {
+    this.selectedPaperArtPiece = null;
+  }
+
+  getSelectedPaperArtPieceName(): string {
+    return this.selectedPaperArtPiece ? this.selectedPaperArtPiece.name : null;
   }
 }
